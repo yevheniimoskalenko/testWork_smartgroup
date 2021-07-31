@@ -31,20 +31,23 @@ export default new Vuex.Store({
 
         if (payload.search === "films") {
           const result = await films.results.filter(
-            (el) => el.title === payload.title
+            (el) =>
+              el.title.toLowerCase().indexOf(payload.title.toLowerCase()) > -1
           );
           commit("setFilms", { result: result[0], type: payload.search });
         }
         if (payload.search === "starships") {
           const result = await films.results.filter(
-            (el) => el.name === payload.title
+            (el) =>
+              el.name.toLowerCase().indexOf(payload.title.toLowerCase()) > -1
           );
 
           commit("setFilms", { result: result[0], type: payload.search });
         }
         if (payload.search === "people") {
           const result = await films.results.filter(
-            (el) => el.name === payload.title
+            (el) =>
+              el.name.toLowerCase().indexOf(payload.title.toLowerCase()) > -1
           );
           commit("setFilms", { result: result[0], type: payload.search });
         }
